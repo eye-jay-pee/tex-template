@@ -1,0 +1,42 @@
+% 1" margins
+\usepackage[margin=1in]{geometry}
+
+% Font setup (choose one)
+\usepackage{fontspec}
+\setmainfont{Arial}  
+
+% Double-spacing
+\usepackage{setspace}
+\linespread{2}  
+
+% No paragraph indentation, no space between paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Bullet formatting: no extra space
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt, left=1.5em}
+
+% no page numebers
+\pagestyle{empty}
+
+% placeholder text
+\usepackage{lipsum} 
+
+\usepackage{titlesec}
+
+\newcommand{\username}{Isaac Peterson}
+
+\titleformat{\section}
+  [block]  % ensures it's treated like a paragraph
+  {\centering\bfseries}
+  {}  % no label
+  {0pt}
+  {\relax Analysis and Research \#\thesection{}~|~\username}
+  [\vspace{0pt}]  % removes post-title vertical space
+
+\titlespacing*{\section}
+  {0pt}{0pt}{0pt}  % {left}{before}{after}
+
+\usepackage{etoolbox}
+\pretocmd{\section}{\clearpage}{}{}
